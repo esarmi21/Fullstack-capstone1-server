@@ -1,0 +1,27 @@
+{
+  "name": "Fullstack-capstone1-server",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "dependencies": {
+    "express": "^4.17.1",
+    "morgan": "^1.9.1",
+    "nodemon": "^2.0.2"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "start": "node app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/esarmi21/Fullstack-capstone1-server.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/esarmi21/Fullstack-capstone1-server/issues"
+  },
+  "homepage": "https://github.com/esarmi21/Fullstack-capstone1-server#readme"
+}
