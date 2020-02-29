@@ -1,5 +1,5 @@
-INSERT INTO comments(text, user_id)
+INSERT INTO comments( text, user_id)
     VALUES 
-    ('First comment', 1),
-    ('Second comment', 2);
+    ( 'Hey Everyone!', 1),
+    ( 'Goodmorning!', 2);
     

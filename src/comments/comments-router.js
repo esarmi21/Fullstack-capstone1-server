@@ -12,15 +12,15 @@ commentsRouter
 
     commentsService.insertComment(
       req.app.get('db'),
-   username, text
+   username,
+    text
     )
       .then(() => {
-          console.log('12345')
         res
           .status(201).send({})
       })
       .catch(() => {
-        console.log('123456')
+        console.log('error')
           res.status(500).send({})
       })
 
