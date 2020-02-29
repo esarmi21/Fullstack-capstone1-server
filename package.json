@@ -4,14 +4,32 @@
   "description": "",
   "main": "app.js",
   "dependencies": {
+    "auth-service": "^1.0.0",
+    "bcrypt": "^4.0.0",
+    "bcryptjs": "^2.4.3",
+    "cors": "^2.8.5",
     "express": "^4.17.1",
+    "helmet": "^3.21.3",
+    "jsonwebtoken": "^8.5.1",
+    "knex": "^0.20.10",
+    "mocha": "^7.1.0",
     "morgan": "^1.9.1",
-    "nodemon": "^2.0.2"
+    "pg": "^7.18.2",
+    "supertest": "^4.0.2",
+    "xss": "^1.0.6"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "dotenv": "^8.2.0",
+    "nodemon": "^2.0.2",
+    "postgrator-cli": "^3.3.0"
+  },
   "scripts": {
-    "start": "node app.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "fullMigrate": "npm run revertMigrate && npm run migrate && npm run seed",
+    "revertMigrate": "npm run migrate -- 0",
+    "seed": "psql -U dunder_mifflin -d animalcrossing -f ./seeds/seed.users.sql -f ./seeds/seed.comments.sql",
+    "migrate": "postgrator --config postgrator-config.js",
+    "devStart": "nodemon ./src/server.js",
+    "test": "mocha --require test/setup.js"
   },
   "repository": {
     "type": "git",
