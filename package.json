@@ -7,7 +7,6 @@
     "auth-service": "^1.0.0",
     "bcrypt": "^4.0.0",
     "bcryptjs": "^2.4.3",
-    "chai": "^4.2.0",
     "cors": "^2.8.5",
     "express": "^4.17.1",
     "helmet": "^3.21.3",
@@ -30,8 +29,7 @@
     "seed": "psql -U dunder_mifflin -d animalcrossing -f ./seeds/seed.users.sql -f ./seeds/seed.comments.sql",
     "migrate": "postgrator --config postgrator-config.js",
     "devStart": "nodemon ./src/server.js",
-    "test": "mocha --require test/setup.js",
-    "deploy": "git push heroku master"
+    "test": "mocha --require test/setup.js"
   },
   "repository": {
     "type": "git",
