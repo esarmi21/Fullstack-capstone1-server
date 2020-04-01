@@ -10,7 +10,6 @@ authRouter
     AuthService.getUser(req.app.get('db'),username, password)
     .then((user)=>{
       const passwordMatches = user.password === password
-      console.log(passwordMatches, user.password, password)
         if (passwordMatches === true)
         return res.status(200).send({})
           else 

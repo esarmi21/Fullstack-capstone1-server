@@ -14,7 +14,6 @@ usersRouter
         req.app.get('db'),
          username, password)
         .then((status)=>{
-          console.log(status)
           if(status === 200){
             return res.status(200).send({})
           }

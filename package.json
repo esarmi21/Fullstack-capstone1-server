@@ -29,7 +29,8 @@
     "seed": "psql -U dunder_mifflin -d animalcrossing -f ./seeds/seed.users.sql -f ./seeds/seed.comments.sql",
     "migrate": "postgrator --config postgrator-config.js",
     "devStart": "nodemon ./src/server.js",
-    "test": "mocha --require test/setup.js"
+    "test": "mocha --require test/setup.js",
+    "start": "node src/index.js"
   },
   "repository": {
     "type": "git",

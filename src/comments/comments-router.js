@@ -8,7 +8,6 @@ const jsonBodyParser = express.json()
 commentsRouter
   .post('/comments', jsonBodyParser, (req, res, next) => {
     const { username, text  } = req.body
-    console.log ({ username, text })
 
     commentsService.insertComment(
       req.app.get('db'),
@@ -20,7 +19,6 @@ commentsRouter
           .status(201).send({})
       })
       .catch(() => {
-        console.log('error')
           res.status(500).send({})
       })
 
