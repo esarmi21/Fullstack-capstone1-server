@@ -8,12 +8,16 @@ const jsonBodyParser = express.json()
 
 usersRouter
   .post('/', jsonBodyParser, (req, res, next) => {
-      const { password, username } = req.body
 
+      const { password, username } = req.body
     UsersService.insertUser(
         req.app.get('db'),
          username, password)
-        .then(()=>{
+        .then((status)=>{
+          console.log(status)
+          if(status === 200){
+            return res.status(200).send({})
+          }
             res.status(201).send({})
         })
         .catch(()=>{

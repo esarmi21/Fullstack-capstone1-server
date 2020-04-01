@@ -14,7 +14,7 @@ function makeUsersArray() {
     },
     {
  
-      user_name: 'test-user-3',
+      username: 'test-user-3',
       password: 'password',
     },
   ]
@@ -25,13 +25,11 @@ function makeUsersArray() {
 function makeCommentsArray(users) {
   return [
     {
-      id: 1,
-      text: 'First test review!',
+      text: 'First test comment',
       user_id: users[0].id,
     },
     {
-      id: 2,
-      text: 'Second test review!',
+      text: 'Second test comment',
       user_id: users[1].id,
     },
    
@@ -55,11 +53,11 @@ function seedUsers(db, users) {
      ...user,
      password: bcrypt.hashSync(user.password, 1)
    }))
-   return db.into('thingful_users').insert(preppedUsers)
+   return db.into('users').insert(preppedUsers)
      .then(() =>
        // update the auto sequence to stay in sync
        db.raw(
-         `SELECT setval('thingful_users_id_seq', ?)`,
+         `SELECT setval('users_id_seq', ?)`,
          [users[users.length - 1].id],
        )
      )
@@ -73,13 +71,6 @@ function seedThingsTables(db, users, comments=[]) {
 }
 
 
-function makeAuthHeader(user, secret = process.env.JWT_SECRET) {
-  const token = jwt.sign({ user_id: user.id }, secret, {
-     subject: user.user_name,
-     algorithm: 'HS256',
-   })
-   return `Bearer ${token}`
- }
 
 module.exports = {
   makeUsersArray,
@@ -87,6 +78,5 @@ module.exports = {
 
   cleanTables,
   seedThingsTables,
-  makeAuthHeader,
   seedUsers
 }
