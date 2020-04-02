@@ -1,5 +1,3 @@
-const xss = require('xss')
-
 const commentsService = {
 
   insertComment(db, username, text ) {
