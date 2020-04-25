@@ -8,7 +8,7 @@ const commentsService = {
       .insert({ user_id:userId, text })
       .into('comments')
       .returning('*')
-      .then(([comment]) => {console.log('comment string', comment)})
+      .then(([comment]) => {console.log("comment string")})
       })
   },
   getComments(db){

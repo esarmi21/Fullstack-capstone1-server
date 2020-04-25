@@ -37,6 +37,9 @@
     "url": "git+https://github.com/esarmi21/Fullstack-capstone1-server.git"
   },
   "keywords": [],
+  "engines": {
+    "node": "v12.13.0"
+  },
   "author": "",
   "license": "ISC",
   "bugs": {
