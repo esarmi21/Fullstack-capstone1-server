@@ -1,6 +1,7 @@
 const knex = require('knex')
 const app = require('../app')
 const { PORT, DB_URL } = require('./config')
+const cors = require('cors')
 
 const db = knex({
   client: 'pg',
@@ -8,6 +9,9 @@ const db = knex({
 })
 
 app.set('db', db)
+app.use(cors({
+  methods: ['GET', 'POST', 'PATCH', 'DELETE']
+}))
 
 app.listen(PORT, () => {
   console.log(`Server listening at http://localhost:${PORT}`)
