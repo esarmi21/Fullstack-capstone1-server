@@ -14,16 +14,13 @@ const morganOption = (NODE_ENV === 'production')
   ? 'tiny'
   : 'common';
 
-app.use(morgan(morganOption))
-app.use(helmet())
-app.use(cors({
-  methods: ['GET', 'POST', 'PATCH', 'DELETE']
-}))
-
+app.use(morgan(morganOption));
+app.use(helmet());
+app.use(cors());
 
 app.use('/auth', authRouter);
-app.use('/users', usersRouter)
-app.use('/comments', commentsRouter)
+app.use('/users', usersRouter);
+app.use('/comments', commentsRouter);
 app.use(usersRouter);
 app.use(commentsRouter);
 
