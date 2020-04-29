@@ -1,12 +1,12 @@
 const express = require('express')
 const UsersService = require('./users-service')
-
+const cors = require('cors')
 
 const usersRouter = express.Router()
 const jsonBodyParser = express.json()
 
 usersRouter
-  .post('/', jsonBodyParser, (req, res, next) => {
+  .post('/',cors(), jsonBodyParser, (req, res, next) => {
 
       const { password, username } = req.body
     UsersService.insertUser(

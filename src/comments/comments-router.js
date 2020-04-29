@@ -1,12 +1,12 @@
 const express = require('express')
 const commentsService = require('./comments-service')
-
+const cors = require('cors')
 
 const commentsRouter = express.Router()
 const jsonBodyParser = express.json()
 
 commentsRouter
-  .post('/comments', jsonBodyParser, (req, res, next) => {
+  .post('/comments',cors(), jsonBodyParser, (req, res, next) => {
     const { username, text  } = req.body
 
     commentsService.insertComment(
@@ -23,7 +23,7 @@ commentsRouter
       })
 
     })
-    .get('/comments', (req, res, next) => {
+    .get('/comments',cors(), (req, res, next) => {
         commentsService.getComments(req.app.get('db'))
         .then((comments)=>{
             res.status(200).send(comments)
