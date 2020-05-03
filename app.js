@@ -26,7 +26,6 @@ app.use(commentsRouter);
 app.use(authRouter);
 
 
-
       app.use(function errorHandler(error, req, res, next) {
            let response
            if (NODE_ENV === 'production') {
