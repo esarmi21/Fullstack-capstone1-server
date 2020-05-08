@@ -12,10 +12,11 @@ const commentsService = {
       })
   },
   getComments(db){
-      return db
-      .from('comments')
-      .select()
-  }
+    return db
+    .select('c.text', 'c.date_create', 'u.username')
+    .from('comments as c')
+    .join('users as u', 'u.id', '=', 'c.user_id')
+}
 }
 
 module.exports = commentsService
